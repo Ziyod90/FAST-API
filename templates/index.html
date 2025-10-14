@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список товаров</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>📦 Список товаров</h1>
+    <a href="/add" class="btn">➕ Добавить товар</a>
+
+    {% if items %}
+        <ul class="item-list">
+            {% for item in items %}
+                <li>
+                    <strong>{{ item.name }}</strong> — {{ item.price }}$
+                    {% if item.description %}
+                        <p>{{ item.description }}</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Пока нет товаров 😔</p>
+    {% endif %}
+</body>
+</html>
